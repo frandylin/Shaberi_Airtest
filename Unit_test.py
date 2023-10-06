@@ -1,18 +1,17 @@
 # simple_report(__file__, logpath=True)# -*- encoding=utf8 -*-
 __author__ = "frandy"
 
+
 from airtest.core.api import *
 from airtest.cli.parser import cli_setup
+from poco.drivers.ios import iosPoco
+
 
 if not cli_setup():
     auto_setup(__file__, logdir=True, devices=["android:///",])
 
-
-from poco.drivers.cocosjs import CocosJsPoco
-from poco.drivers.ios import iosPoco
-
-
-dev = device()
+# dev = device()
+# poco = iosPoco()
 
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
@@ -41,13 +40,19 @@ start_app("im.shaberi.app.uat")
 # repeat_count = 10
 # for _ in range(repeat_count):
 #     logout_in()
+
 poco("file").click()
-sleep(2)
-if poco("permission_allow_button").exists():
-    poco("permission_allow_button").click()
+sleep(1)
+if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+    poco("com.android.packageinstaller:id/permission_allow_button").click()
+
 else:
-    pass
+    pass 
     
+# if poco("Open").exists:
+#     poco("Open").click()
+# else:
+#     pass
 # stop_app("im.shaberi.app.uat")
 
 

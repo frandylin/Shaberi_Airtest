@@ -26,7 +26,6 @@ def click_service():
     touch(Template(r"tpl1695031008707.png", record_pos=(-0.416, -0.797), resolution=(1242, 2208)))
     sleep(1)
 click_service()
-
 def click_privacy():
     poco("Privacy Policy").click()
     exists(Template(r"tpl1695031008707.png", record_pos=(-0.416, -0.797), resolution=(1242, 2208)))
@@ -34,6 +33,7 @@ def click_privacy():
     sleep(1)
 click_privacy()
 
+#Login
 def login_and_vertify(phone_number, vertification_code):
 #國碼
     poco("+886").click() 
@@ -83,6 +83,11 @@ send_message()
 #錄音
 def recording():
     touch(Template(r"tpl1695032132298.png", record_pos=(0.445, 0.268), resolution=(1242, 2208)))
+    sleep(2)
+    if exists(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208))):
+        touch(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208)))
+    else:
+        pass 
     exists(Template(r"tpl1695032147242.png", record_pos=(-0.009, 0.709), resolution=(1242, 2208)))
     swipe(Template(r"tpl1695032147242.png", record_pos=(-0.009, 0.709), resolution=(1242, 2208)), vector=[0, 0], duration=4)
     exists(Template(r"tpl1695032183598.png", record_pos=(-0.429, 0.804), resolution=(1242, 2208)))
@@ -115,6 +120,11 @@ send_image()
 def open_camera():
     poco("Open camera").click()
     poco("Open camera").click()
+    sleep(2)
+    if exists(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208))):
+        touch(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208)))
+    else:
+        pass 
     poco("PhotoCapture").wait_for_appearance()
     poco("PhotoCapture").click()
     poco("Use Photo").wait_for_appearance
@@ -211,6 +221,14 @@ send_invite_message()
 def click_contacts():
     touch(Template(r"tpl1695116188444.png", record_pos=(-0.004, -0.457), resolution=(1242, 2208)))
 click_contacts()
+if poco("Open").exists:
+    poco("Open").click()
+else:
+    pass
+if exists(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208))):
+    touch(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208))) 
+else:
+    pass 
 poco("A friend who is using Shaberi").wait_for_appearance()
 back()
 
@@ -283,6 +301,11 @@ sleep(4)
 click_avatar_camera_icon()
 poco("Open gallery").wait_for_appearance()
 poco("Open gallery").click()
+if exists(Template(r"tpl1696556947287.png", record_pos=(-0.201, 0.147), resolution=(1242, 2208))):
+    touch(Template(r"tpl1696556947287.png", record_pos=(-0.201, 0.147), resolution=(1242, 2208)))
+else:
+    pass 
+
 sleep(1)
 poco("Screenshot, September 19, 1:16 PM").click()
 sleep(2)

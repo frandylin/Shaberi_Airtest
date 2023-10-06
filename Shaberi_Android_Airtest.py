@@ -18,8 +18,11 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 
 
 # script content
+# prod: jp.primetheory.talktalk
+# uat: im.shaberi.app.uat
+# china: im.shaberi.app.china
 
-start_app("jp.primetheory.talktalk")
+start_app("im.shaberi.app.uat")
 
 # Login Page ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -86,7 +89,11 @@ send_message()
 
 def recording():
     touch(Template(r"tpl1695349179530.png", record_pos=(0.414, 0.201), resolution=(720, 1600)))
-    
+    sleep(1)
+    if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+        poco("com.android.packageinstaller:id/permission_allow_button").click()
+    else:
+        pass 
     exists(Template(r"tpl1694589160762.png", record_pos=(-0.006, 0.771), resolution=(1080, 2220)))
 
     swipe(Template(r"tpl1694589160762.png", record_pos=(-0.006, 0.771), resolution=(1080, 2220)), vector=[0, 0], duration=4)
@@ -103,6 +110,11 @@ recording()
 def send_file():
     touch(Template(r"tpl1694597015858.png", record_pos=(-0.424, 0.389), resolution=(720, 1600)))
     poco("file").click()
+    sleep(1)
+    if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+        poco("com.android.packageinstaller:id/permission_allow_button").click()
+    else:
+        pass 
     poco("Show roots").click()
     touch(Template(r"tpl1694594958863.png", record_pos=(-0.401, -0.329), resolution=(720, 1600)))
     touch(Template(r"tpl1694595130533.png", record_pos=(-0.239, 0.34), resolution=(720, 1600)))
@@ -124,7 +136,13 @@ send_image()
 def open_camera():
     touch(Template(r"tpl1694597380196.png", record_pos=(0.339, 0.657), resolution=(720, 1600)))
     poco("Open camera").click()
+    if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+        poco("com.android.packageinstaller:id/permission_allow_button").click()
+    else:
+        pass
+    poco("com.oppo.camera:id/shutter_button").wait_for_appearance()
     poco("com.oppo.camera:id/shutter_button").click()
+    poco("com.oppo.camera:id/done_button").wait_for_appearance()
     poco("com.oppo.camera:id/done_button").click()
     poco("Send").wait_for_appearance()
     poco("Send").click()
@@ -148,6 +166,11 @@ open_camera_video()
 #Video Call
 def video_call():
     touch(Template(r"tpl1694597620335.png", record_pos=(0.269, -0.963), resolution=(720, 1600)))
+    sleep(1)
+    if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+        poco("com.android.packageinstaller:id/permission_allow_button").click()
+    else:
+        pass
     sleep(6)
     poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.Button").child("android.widget.Button").click()
 video_call()
@@ -210,6 +233,14 @@ send_invite_message()
 def click_contacts():
     poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.view.View").child("android.view.View").child("android.view.View").child("android.view.View").child("android.view.View")[1].child("android.view.View").child("Contacts").child("Contacts").click()
 click_contacts()
+if poco("Open").exists():
+    poco("Open").click()
+else:
+    pass
+if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+    poco("com.android.packageinstaller:id/permission_allow_button").click()
+else:
+    pass
 poco("Contacts Friends").wait_for_appearance()
 keyevent("BACK")
 
