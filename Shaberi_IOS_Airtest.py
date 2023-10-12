@@ -18,6 +18,24 @@ poco = iosPoco()
 # china: im.shaberi.app.china
 
 start_app("im.shaberi.app.uat")
+ 
+#Navigation popup
+def Navigation_popup():
+    if exists(Template(r"tpl1696556947287.png", record_pos=(-0.201, 0.147), resolution=(1242, 2208))):
+        touch(Template(r"tpl1696556947287.png", record_pos=(-0.201, 0.147), resolution=(1242, 2208)))
+    else:
+        pass
+    sleep(2)
+    for _ in range(4):
+        if poco("Next").exists():
+            poco("Next").click()
+        else:
+            break
+    if poco("Let’s go").exists():
+        poco("Let’s go").click()
+    else:
+        pass
+Navigation_popup()
 
 #服務協議＆隱私權政策
 def click_service():

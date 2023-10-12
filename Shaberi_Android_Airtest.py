@@ -24,6 +24,19 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 
 start_app("im.shaberi.app.uat")
 
+#Navigation popup
+def Navigation_popup():
+    for _ in range(4):
+        if poco("Next").exists():
+            poco("Next").click()
+        else:
+            break
+    if poco("Let’s go").exists():
+        poco("Let’s go").click()
+    else:
+        pass
+Navigation_popup()
+
 # Login Page ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def click_service():

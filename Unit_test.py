@@ -8,14 +8,14 @@ from poco.drivers.ios import iosPoco
 
 
 if not cli_setup():
-    auto_setup(__file__, logdir=True, devices=["android:///",])
+    auto_setup(__file__, logdir=True, devices=["ios:///",])
 
-# dev = device()
-# poco = iosPoco()
+dev = device()
+poco = iosPoco()
 
 
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+# from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
 
 # script content
@@ -41,13 +41,13 @@ start_app("im.shaberi.app.uat")
 # for _ in range(repeat_count):
 #     logout_in()
 
-poco("file").click()
-sleep(1)
-if poco("com.android.packageinstaller:id/permission_allow_button").exists():
-    poco("com.android.packageinstaller:id/permission_allow_button").click()
+# poco("file").click()
+# sleep(1)
+# if poco("com.android.packageinstaller:id/permission_allow_button").exists():
+#     poco("com.android.packageinstaller:id/permission_allow_button").click()
 
-else:
-    pass 
+# else:
+#     pass 
     
 # if poco("Open").exists:
 #     poco("Open").click()
@@ -56,7 +56,11 @@ else:
 # stop_app("im.shaberi.app.uat")
 
 
-
+for _ in range(4):
+    if poco("Next").exists():
+        poco("Next").click()
+    else:
+        break
 
 
 
