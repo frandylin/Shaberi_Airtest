@@ -47,7 +47,7 @@ def click_service():
 click_service()
 
 def click_privacy():
-    touch(Template(r"tpl1694593562098.png", record_pos=(0.301, 0.828), resolution=(720, 1600)))
+    touch(Template(r"A_privacy_bt.png", record_pos=(0.301, 0.828), resolution=(720, 1600)))
     sleep(2)
     keyevent("BACK")
     sleep(1)
@@ -56,10 +56,10 @@ click_privacy()
 def login_and_verify(phone_number, verification_code):
     # 國碼
     poco("+1").click()
-    touch(Template(r"tpl1694573043333.png", record_pos=(-0.391, -0.697), resolution=(1080, 2220)))
+    touch(Template(r"A_search_bt.png", record_pos=(-0.391, -0.697), resolution=(1080, 2220)))
     text("886")
     sleep(1)
-    touch(Template(r"tpl1694575972670.png", record_pos=(-0.163, -0.524), resolution=(1080, 2220)))
+    touch(Template(r"A_taiwan_bt.png", record_pos=(-0.163, -0.524), resolution=(1080, 2220)))
 
     # 輸入電話號碼
     poco("android.widget.EditText").click()
@@ -76,32 +76,32 @@ login_and_verify("975916011", "888888")
 #Bottom Bar Switch
 
 def friend_page():
-    touch(Template(r"tpl1694577567966.png", record_pos=(-0.007, 0.86), resolution=(1080, 2220)))
+    touch(Template(r"A_friend_page.png", record_pos=(-0.007, 0.86), resolution=(1080, 2220)))
     poco("Invite").wait_for_appearance()
 friend_page()
 
 def setting_page():
-    touch(Template(r"tpl1694571376374.png", record_pos=(0.332, 0.869), resolution=(1080, 2220)))
+    touch(Template(r"A_setting_page.png", record_pos=(0.332, 0.869), resolution=(1080, 2220)))
 setting_page()
 
 def converation_page():
-    touch(Template(r"tpl1694596831101.png", record_pos=(-0.332, 0.946), resolution=(720, 1600)))
+    touch(Template(r"A_conversation_page.png", record_pos=(-0.332, 0.946), resolution=(720, 1600)))
 converation_page()
 
 #one-on-one chat
 
 def click_frandy():
-    touch(Template(r"tpl1694584527320.png", record_pos=(-0.23, -0.54), resolution=(1080, 2220)))
+    touch(Template(r"tpl1701245679802.png", record_pos=(-0.2, -0.586), resolution=(720, 1600)))
 click_frandy()
 
 def send_message():
     poco("android.widget.EditText").click()
     text("Automatic")
-    touch(Template(r"tpl1694591072193.png", record_pos=(0.415, 0.872), resolution=(1080, 2220)))
+    touch(Template(r"A_send_bt.png", record_pos=(0.415, 0.872), resolution=(1080, 2220)))
 send_message()
 
 def recording():
-    touch(Template(r"tpl1695349179530.png", record_pos=(0.414, 0.201), resolution=(720, 1600)))
+    touch(Template(r"A_recording_icon.png", record_pos=(0.414, 0.201), resolution=(720, 1600)))
     sleep(1)
     if poco("com.android.packageinstaller:id/permission_allow_button").exists():
         poco("com.android.packageinstaller:id/permission_allow_button").click()
@@ -111,17 +111,18 @@ def recording():
 
     swipe(Template(r"tpl1694589160762.png", record_pos=(-0.006, 0.771), resolution=(1080, 2220)), vector=[0, 0], duration=4)
 
-    exists(Template(r"tpl1694591112563.png", record_pos=(-0.422, 0.876), resolution=(1080, 2220)))
-    touch(Template(r"tpl1694591112563.png", record_pos=(-0.422, 0.876), resolution=(1080, 2220)))
+    exists(Template(r"A_delete_bt.png", record_pos=(-0.422, 0.876), resolution=(1080, 2220)))
+    touch(Template(r"A_delete_bt.png", record_pos=(-0.422, 0.876), resolution=(1080, 2220)))
 
     swipe(Template(r"tpl1694589160762.png", record_pos=(-0.006, 0.771), resolution=(1080, 2220)), vector=[0, 0], duration=4)
 
-    touch(Template(r"tpl1694591072193.png", record_pos=(0.415, 0.872), resolution=(1080, 2220)))
+    touch(Template(r"A_send_bt.png", record_pos=(0.415, 0.872), resolution=(1080, 2220)))
 recording()
+
 
 #Send File
 def send_file():
-    touch(Template(r"tpl1694597015858.png", record_pos=(-0.424, 0.389), resolution=(720, 1600)))
+    touch(Template(r"A_add_icon.png", record_pos=(-0.424, 0.389), resolution=(720, 1600)))
     poco("file").click()
     sleep(1)
     if poco("com.android.packageinstaller:id/permission_allow_button").exists():
@@ -129,7 +130,7 @@ def send_file():
     else:
         pass 
     poco("Show roots").click()
-    touch(Template(r"tpl1694594958863.png", record_pos=(-0.401, -0.329), resolution=(720, 1600)))
+    touch(Template(r"A_download_bt.png", record_pos=(-0.401, -0.329), resolution=(720, 1600)))
     touch(Template(r"tpl1694595130533.png", record_pos=(-0.239, 0.34), resolution=(720, 1600)))
     poco("Send").wait_for_appearance()
     poco("Send").click()
@@ -139,7 +140,7 @@ send_file()
 def send_image():
     poco("image").click()
     poco("Show roots").click()
-    touch(Template(r"tpl1694595520334.png", record_pos=(-0.408, -0.526), resolution=(720, 1600)))
+    touch(Template(r"A_recent_icon.png", record_pos=(-0.408, -0.526), resolution=(720, 1600)))
     poco("android.widget.FrameLayout").offspring("com.android.documentsui:id/drawer_layout").offspring("android.widget.FrameLayout").offspring("com.android.documentsui:id/container_directory").offspring("com.android.documentsui:id/dir_list").child("android.widget.LinearLayout")[0].offspring("android.view.View").click()
     poco("Send").wait_for_appearance()
     poco("Send").click()
@@ -147,7 +148,7 @@ send_image()
 
 #Open Camera
 def open_camera():
-    touch(Template(r"tpl1694597380196.png", record_pos=(0.339, 0.657), resolution=(720, 1600)))
+    touch(Template(r"A_camera_icon.png", record_pos=(0.339, 0.657), resolution=(720, 1600)))
     poco("Open camera").click()
     if poco("com.android.packageinstaller:id/permission_allow_button").exists():
         poco("com.android.packageinstaller:id/permission_allow_button").click()
@@ -163,7 +164,7 @@ open_camera()
 
 #Open Camera for video
 def open_camera_video():
-    touch(Template(r"tpl1694597380196.png", record_pos=(0.339, 0.657), resolution=(720, 1600)))
+    touch(Template(r"A_camera_icon.png", record_pos=(0.339, 0.657), resolution=(720, 1600)))
     poco("Open camera for a video").wait_for_appearance()
     poco("Open camera for a video").click()
     poco("com.oppo.camera:id/shutter_button").wait_for_appearance()
@@ -185,14 +186,14 @@ def video_call():
     else:
         pass
     sleep(6)
-    poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.Button").child("android.widget.Button").click()
+    poco("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[4].click()
 video_call()
 
 #Voice Call
 def voice_call():
     touch(Template(r"tpl1694596569317.png", record_pos=(0.406, -0.96), resolution=(720, 1600)))
     sleep(6)
-    touch(Template(r"tpl1694599938205.png", record_pos=(-0.008, 0.738), resolution=(720, 1600)))
+    poco("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[3].click()
 voice_call()
 
 keyevent("BACK")
@@ -292,10 +293,12 @@ touch(Template(r"tpl1694747705367.png", record_pos=(-0.326, -0.412), resolution=
 keyevent("BACK")
 touch(Template(r"tpl1694747730215.png", record_pos=(-0.006, -0.406), resolution=(720, 1600)))
 sleep(4)
-poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.Button").child("android.widget.Button").click()
-touch(Template(r"tpl1694747779655.png", record_pos=(0.315, -0.41), resolution=(720, 1600)))
+poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[4].click()
+
+touch(Template(r"tpl1699522412366.png", record_pos=(0.312, -0.449), resolution=(720, 1600)))
 sleep(4)
-poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView").child("android.widget.Button").click()
+poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[3].click()
+
 keyevent("BACK")
 
 #Setting Page--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

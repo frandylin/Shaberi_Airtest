@@ -185,14 +185,14 @@ def video_call():
     else:
         pass
     sleep(6)
-    poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.Button").child("android.widget.Button").click()
+    poco("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[4].click()
 video_call()
 
 #Voice Call
 def voice_call():
     touch(Template(r"tpl1694596569317.png", record_pos=(0.406, -0.96), resolution=(720, 1600)))
     sleep(6)
-    touch(Template(r"tpl1694599938205.png", record_pos=(-0.008, 0.738), resolution=(720, 1600)))
+    poco("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[3].click()
 voice_call()
 
 keyevent("BACK")
@@ -231,7 +231,7 @@ touch(Template(r"tpl1697175636451.png", record_pos=(-0.31, -0.24), resolution=(7
 keyevent("BACK")
 
 #Contacts- invite friend
-
+sleep(1)
 click_contacts_icon()
 poco("Invite").click()
 
@@ -292,10 +292,10 @@ touch(Template(r"tpl1694747705367.png", record_pos=(-0.326, -0.412), resolution=
 keyevent("BACK")
 touch(Template(r"tpl1694747730215.png", record_pos=(-0.006, -0.406), resolution=(720, 1600)))
 sleep(4)
-poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.Button").child("android.widget.Button").click()
+poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[4].click()
 touch(Template(r"tpl1694747779655.png", record_pos=(0.315, -0.41), resolution=(720, 1600)))
 sleep(4)
-poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView").child("android.widget.Button").click()
+poco("android.widget.FrameLayout").offspring("android.widget.FrameLayout").child("android.view.View").child("android.view.View").child("android.widget.ImageView")[3].click()
 keyevent("BACK")
 
 #Setting Page--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -4,7 +4,7 @@ __author__ = "frandy"
 from airtest.core.api import *
 from airtest.cli.parser import cli_setup
 from poco.drivers.ios import iosPoco
-
+# import pytest
 
 if not cli_setup():
     auto_setup(__file__, logdir=True, devices=["ios:///",])
@@ -58,7 +58,7 @@ def login_and_vertify(phone_number, vertification_code):
     touch(Template(r"tpl1695031205216.png", record_pos=(-0.399, -0.589), resolution=(1242, 2208)))
     text("886")
     sleep(1)
-    touch(Template(r"tpl1695031569511.png", record_pos=(-0.281, -0.413), resolution=(1242, 2208)))
+    touch(Template(r"tpl1702365408156.png", record_pos=(-0.297, -0.422), resolution=(1242, 2208)))
 
 #電話號碼欄位
     poco("Enter mobile phone number").click()
@@ -88,7 +88,7 @@ conversation_page()
 
 #one-on-one chat
 def click_frandy():
-    touch(Template(r"tpl1695032038652.png", record_pos=(-0.246, -0.248), resolution=(1242, 2208)))
+    touch(Template(r"tpl1702368436051.png", record_pos=(-0.323, 0.446), resolution=(1242, 2208)))
 click_frandy()
     
 #Send Message
@@ -134,9 +134,27 @@ def send_image():
     poco("Send").click()
 send_image()
 
+#Send redpacket
+def send_redpacket():
+    poco("red packet").click()
+    poco("Send Red Packet").click()
+    poco("0.010～50.000").click()
+    poco("1").click()
+    poco("The red packet is coming!").click()
+    text("Lets goooooooo")
+    poco("Send").click()
+    poco("Confirm sending red packet？").wait_for_appearance()
+    poco("Send").click()
+    poco("Please enter a 6-digit password").click()
+    text("135790")
+    poco("Done").click()
+    sleep(1)
+send_redpacket()
+
 #Open Camera
 def open_camera():
     poco("Open camera").click()
+    poco("Open camera").wait_for_appearance()
     poco("Open camera").click()
     sleep(2)
     if exists(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208))):
@@ -168,16 +186,18 @@ open_camera_video()
 
 #Video Call
 def video_call():
-    touch(Template(r"tpl1695088260519.png", record_pos=(0.3, -0.776), resolution=(1242, 2208)))
+    touch(Template(r"tpl1695088291177.png", record_pos=(0.423, -0.775), resolution=(1242, 2208)))
+    sleep(1)
+    touch(Template(r"tpl1703728524301.png", record_pos=(0.224, -0.671), resolution=(1242, 2208)))
     sleep(6)
-    poco("Hangup").click()
+    touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
 video_call()
 
 #Voice Call
 def voice_call():
-    touch(Template(r"tpl1695088291177.png", record_pos=(0.423, -0.775), resolution=(1242, 2208)))
+    touch(Template(r"tpl1703728552287.png", record_pos=(-0.233, -0.67), resolution=(1242, 2208)))
     sleep(6)
-    poco("Hangup").click()
+    touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
 voice_call()
 
 def back():
@@ -198,6 +218,46 @@ send_file()
 #Send image
 send_image()
 
+#Send redpacket
+def send_redpacket_random():
+    poco("red packet").click()
+    poco("Send Red Packet").click()
+    poco("0.010～50.000").click()
+    poco("1").click()
+    poco("1～3").click()
+    poco("2").click()
+    poco("The red packet is coming!").click()
+    text("Lets goooooooo")
+    poco("Send").click()
+    poco("Confirm sending red packet？").wait_for_appearance()
+    poco("Send").click()
+    poco("Please enter a 6-digit password").click()
+    text("135790")
+    poco("Done").click()
+    sleep(2)
+send_redpacket_random()
+
+def send_redpacket_regular():
+    touch(Template(r"tpl1695032236261.png", record_pos=(-0.432, 0.37), resolution=(1242, 2208)))
+    poco("red packet").click()
+    touch(Template(r"tpl1701677002216.png", record_pos=(0.252, -0.651), resolution=(1242, 2208)))
+    poco("Send Red Packet").click()
+    poco("0.010～50.000").wait_for_appearance()
+    poco("0.010～50.000").click()
+    poco("1").click()
+    poco("1～3").click()
+    poco("2").click()
+    poco("The red packet is coming!").click()
+    text("Lets goooooooo")
+    poco("Send").click()
+    poco("Confirm sending red packet？").wait_for_appearance()
+    poco("Send").click()
+    poco("Please enter a 6-digit password").click()
+    text("135790")
+    poco("Done").click()
+    sleep(2)
+send_redpacket_regular()        
+
 #Open Camera
 open_camera()
 
@@ -214,8 +274,6 @@ friend_page()
 def click_contacts_icon():
     touch(Template(r"tpl1695090045513.png", record_pos=(0.421, -0.777), resolution=(1242, 2208)))
 click_contacts_icon()
-poco("Search").click()
-text("frandy")
 click_frandy()
 sleep(2)
 back()
@@ -239,7 +297,7 @@ send_invite_message()
 def click_contacts():
     touch(Template(r"tpl1695116188444.png", record_pos=(-0.004, -0.457), resolution=(1242, 2208)))
 click_contacts()
-if poco("Open").exists:
+if poco("Open").exists():
     poco("Open").click()
 else:
     pass
@@ -247,7 +305,7 @@ if exists(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolutio
     touch(Template(r"tpl1696498169909.png", record_pos=(0.159, 0.141), resolution=(1242, 2208))) 
 else:
     pass 
-poco("A friend who is using Shaberi").wait_for_appearance()
+poco("Contacts Friends").wait_for_appearance()
 back()
 
 #Contacts- Scan
@@ -289,12 +347,12 @@ back()
 sleep(2)
 touch(Template(r"tpl1695117813243.png", record_pos=(-0.001, -0.302), resolution=(1242, 2208)))
 sleep(4)
-poco("Hangup").click()
+touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
 sleep(2)
 touch(Template(r"tpl1695117062172.png", record_pos=(0.308, -0.348), resolution=(1242, 2208)))
 
 sleep(4)
-poco("Hangup").click()
+touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
 back()
 
 #Setting Page--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -319,13 +377,13 @@ sleep(4)
 click_avatar_camera_icon()
 poco("Open gallery").wait_for_appearance()
 poco("Open gallery").click()
-if exists(Template(r"tpl1696556947287.png", record_pos=(-0.201, 0.147), resolution=(1242, 2208))):
+if exists(Template(r"tpl1703746960001.png", record_pos=(0.2, -0.23), resolution=(1242, 2208))):
     touch(Template(r"tpl1696556947287.png", record_pos=(-0.201, 0.147), resolution=(1242, 2208)))
 else:
     pass 
 
 sleep(1)
-poco("Screenshot, September 19, 1:16 PM").click()
+poco("Photo, September 07, 10:33 AM").click()
 sleep(2)
 
 #Setting Avatar from System default
@@ -367,10 +425,11 @@ sleep(5)
 def click_menu_button():
     touch(Template(r"tpl1696228277023.png", record_pos=(0.431, -0.781), resolution=(1242, 2208)))
 click_menu_button()
-poco("New Group").click()
-text("testgroup")
-poco("Topic").click()
-text("QA")
+poco("Create group").click()
+click_frandy()
+poco("Next").click()
+poco("Please enter a group name").click()
+text("test group")
 poco("Create").click()
 sleep(1)
 back()
@@ -380,7 +439,6 @@ click_menu_button()
 poco("Invite contact").click()
 send_invite_message()
 sleep(2)
-
 #Scan
 click_menu_button()
 poco("Scan").click()
@@ -391,12 +449,18 @@ sleep(2)
 click_menu_button()
 poco("Read all").click()
 sleep(3)
-
 #MyQrcode
 click_menu_button()
 poco("My QR code").click()
 poco("My QR code").wait_for_appearance()
 poco("Close").click()
+#Clear history
+click_menu_button()
+poco("Clear history").click()
+touch(Template(r"tpl1703733416351.png", record_pos=(-0.097, -0.634), resolution=(1242, 2208)))
+poco("Delete").click()
+poco("Are you sure you want to delete chat room?").wait_for_appearance()
+poco("Delete").click()
 
 
 stop_app("im.shaberi.app.uat")

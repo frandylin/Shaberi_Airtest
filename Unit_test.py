@@ -5,78 +5,36 @@ __author__ = "frandy"
 from airtest.core.api import *
 from airtest.cli.parser import cli_setup
 from poco.drivers.ios import iosPoco
-
-
+from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 if not cli_setup():
     auto_setup(__file__, logdir=True, devices=["ios:///",])
 
 dev = device()
 poco = iosPoco()
 
+if exists(Template(r"tpl1703847332009.png", record_pos=(0.38, -0.009), resolution=(1242, 2208))):
+    touch(Template(r"tpl1703847332009.png", record_pos=(0.38, -0.009), resolution=(1242, 2208)))
+else:
+    pass
+swipe(Template(r"tpl1701326417205.png", record_pos=(0.007, 0.378), resolution=(1242, 2208)), vector=[-0.0088, -0.5856])
+def click_frandy():
+    touch(Template(r"tpl1697180427811.png", record_pos=(-0.198, 0.488), resolution=(1242, 2208)))
+click_frandy()
+sleep(2)
+touch(Template(r"tpl1695117530256.png", record_pos=(-0.319, -0.335), resolution=(1242, 2208)))
+sleep(2)
+back()
+sleep(2)
+touch(Template(r"tpl1695117813243.png", record_pos=(-0.001, -0.302), resolution=(1242, 2208)))
+sleep(4)
+touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
+sleep(2)
+touch(Template(r"tpl1695117062172.png", record_pos=(0.308, -0.348), resolution=(1242, 2208)))
 
-# from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-
-
-# script content
-
-start_app("im.shaberi.app.uat")
-
-#Logout
-
-# def logout_in():
-#     touch(Template(r"tpl1694571376374.png", record_pos=(0.332, 0.869), resolution=(1080, 2220)))
-#     touch(Template(r"tpl1695022053222.png", record_pos=(0.403, -0.744), resolution=(720, 1600)))
-#     poco("Logout").click()
-#     poco("Confirm").click()
-#     poco("+1").click() 
-#     touch(Template(r"tpl1694573043333.png", record_pos=(-0.391, -0.697), resolution=(1080, 2220)))
-#     text("886")
-#     sleep(1)
-#     touch(Template(r"tpl1694575972670.png", record_pos=(-0.163, -0.524), resolution=(1080, 2220)))
-#     poco("Next").click()
-#     text("888888")
-#     sleep(5)
-# repeat_count = 10
-# for _ in range(repeat_count):
-#     logout_in()
-
-# poco("file").click()
-# sleep(1)
-# if poco("com.android.packageinstaller:id/permission_allow_button").exists():
-#     poco("com.android.packageinstaller:id/permission_allow_button").click()
-
-# else:
-#     pass 
-    
-# if poco("Open").exists:
-#     poco("Open").click()
-# else:
-#     pass
-# stop_app("im.shaberi.app.uat")
-
-
-for _ in range(4):
-    if poco("Next").exists():
-        poco("Next").click()
-    else:
-        break
-
-
-
-
-
-
-
-    
-    
-
-
-
-
-
-
-
+sleep(4)
+touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
+back()
 
 
 
