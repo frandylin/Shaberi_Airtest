@@ -8,43 +8,21 @@ from poco.drivers.ios import iosPoco
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 # poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 if not cli_setup():
-    auto_setup(__file__, logdir=True, devices=["ios:///",])
+    auto_setup(__file__, logdir=True, devices=["Android:///",])
 
 dev = device()
-poco = iosPoco()
+# poco = iosPoco()
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+start_app("im.shaberi.app.uat")
 
-if exists(Template(r"tpl1703847332009.png", record_pos=(0.38, -0.009), resolution=(1242, 2208))):
-    touch(Template(r"tpl1703847332009.png", record_pos=(0.38, -0.009), resolution=(1242, 2208)))
-else:
-    pass
-swipe(Template(r"tpl1701326417205.png", record_pos=(0.007, 0.378), resolution=(1242, 2208)), vector=[-0.0088, -0.5856])
-def click_frandy():
-    touch(Template(r"tpl1697180427811.png", record_pos=(-0.198, 0.488), resolution=(1242, 2208)))
-click_frandy()
-sleep(2)
-touch(Template(r"tpl1695117530256.png", record_pos=(-0.319, -0.335), resolution=(1242, 2208)))
-sleep(2)
-back()
-sleep(2)
-touch(Template(r"tpl1695117813243.png", record_pos=(-0.001, -0.302), resolution=(1242, 2208)))
-sleep(4)
-touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
-sleep(2)
-touch(Template(r"tpl1695117062172.png", record_pos=(0.308, -0.348), resolution=(1242, 2208)))
+expand_bt = Template(r"A_add_icon.png", record_pos=(-0.424, 0.389), resolution=(720, 1600))
+average_bt = Template(r"tpl1713952503782.png", record_pos=(0.235, -0.818), resolution=(720, 1600))
+red_packet_amount_textbox = Template(r"tpl1714024931803.png", record_pos=(-0.242, -0.56), resolution=(720, 1600))
+frandy_narrow = Template(r"tpl1714030111403.png", record_pos=(-0.212, 0.465), resolution=(720, 1600))
+information_message = Template(r"tpl1714029558125.png", record_pos=(-0.318, -0.447), resolution=(720, 1600))
 
-sleep(4)
-touch(Template(r"tpl1701062972277.png", record_pos=(-0.001, 0.567), resolution=(1242, 2208)))
-back()
-
-
-
-
-
-
-
-
-
-
+poco("android.widget.FrameLayout").offspring("com.android.documentsui:id/drawer_layout").offspring("android.widget.FrameLayout").offspring("com.android.documentsui:id/container_directory").offspring("com.android.documentsui:id/dir_list").child("android.widget.LinearLayout")[0].offspring("android.view.View").wait_for_appearance()
+poco("android.widget.FrameLayout").offspring("com.android.documentsui:id/drawer_layout").offspring("android.widget.FrameLayout").offspring("com.android.documentsui:id/container_directory").offspring("com.android.documentsui:id/dir_list").child("android.widget.LinearLayout")[0].offspring("android.view.View").click()
 
 
 
