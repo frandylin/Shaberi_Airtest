@@ -95,21 +95,24 @@ def Navigation_popup():
         poco("Let’s go").click()
     else:
         pass
-# Navigation_popup()
-
+    
 #服務協議＆隱私權政策
 def click_service():
     poco("Terms and Conditions of Use").click()
     exists(done_bt)
     touch(done_bt)
     sleep(1)
-# click_service()
+
 def click_privacy():
     poco("Privacy Policy").click()
     exists(done_bt)
     touch(done_bt)
     sleep(1)
-# click_privacy()
+    
+
+Navigation_popup()
+click_service()
+click_privacy()
 
 #Login
 def login_and_vertify(phone_number):

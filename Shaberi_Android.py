@@ -64,6 +64,7 @@ menu_bt = Template(r"tpl1695022944014.png", record_pos=(0.421, -0.974), resoluti
 average_bt = Template(r"tpl1713952503782.png", record_pos=(0.235, -0.818), resolution=(720, 1600))
 red_packet_amount_textbox = Template(r"tpl1714031672328.png", record_pos=(-0.158, -0.551), resolution=(720, 1600))
 qa_group = Template(r"tpl1714030583848.png", record_pos=(-0.161, -0.369), resolution=(720, 1600))
+picture = Template(r"tpl1715150700422.png", record_pos=(-0.381, -0.161), resolution=(720, 1600))
 
 
 #Navigation popup
@@ -192,9 +193,12 @@ send_file()
 #Send image
 def send_image():
     poco("Album").click()
+    poco("Show roots").wait_for_appearance()
     poco("Show roots").click()
     touch(recent_bt)
-    poco("android.widget.FrameLayout").offspring("com.android.documentsui:id/drawer_layout").offspring("android.widget.FrameLayout").offspring("com.android.documentsui:id/container_directory").offspring("com.android.documentsui:id/dir_list").child("android.widget.LinearLayout")[0].offspring("android.view.View").click()
+    sleep(1)
+    touch(picture)
+    poco("com.android.documentsui:id/option_menu_list").click()
     poco("Send").wait_for_appearance()
     poco("Send").click()
 send_image()
@@ -224,6 +228,7 @@ send_redpacket()
 def open_camera():
     wait(camera_bt)
     touch(camera_bt)
+    poco("Open camera").wait_for_appearance()
     poco("Open camera").click()
     sleep(1)
     poco("com.oppo.camera:id/shutter_button").wait_for_appearance()
@@ -232,14 +237,15 @@ def open_camera():
     poco("com.oppo.camera:id/done_button").click()
     poco("Send").wait_for_appearance()
     poco("Send").click()
+    sleep(3)
 open_camera()
 
 #Open Camera for video
 def open_camera_video():
-    sleep(1)
     wait(camera_bt)
     touch(camera_bt)
     poco("Open camera for a video").wait_for_appearance()
+    sleep(2)
     poco("Open camera for a video").click()
     poco("com.oppo.camera:id/shutter_button").wait_for_appearance()
     poco("com.oppo.camera:id/shutter_button").click()
@@ -356,7 +362,9 @@ poco("Invite").click()
 #send invite message
 def send_invite_message():
     poco("Messages").click()
+    poco("com.android.mms:id/action_edit").wait_for_appearance()
     poco("com.android.mms:id/action_edit").click()
+    poco("android:id/button3").wait_for_appearance()
     poco("android:id/button3").click()
 send_invite_message()
     
@@ -383,7 +391,8 @@ def scan():
 scan()
 
 #Contacts- friend list
-touch(frandy_narrow)
+poco("frandy").click()
+assert_exists(camera_bt)
 keyevent("BACK")
 
 #Search
@@ -463,6 +472,7 @@ click_nickname()
 poco("android.widget.EditText")
 text("1")
 poco("Save").click()
+sleep(5)
 wait(nick_name_bt)
 click_nickname()
 touch(delete_bt , times=1)
@@ -505,9 +515,8 @@ def click_menu_button():
     touch(menu_bt)
 click_menu_button()
 poco("Create group").click()
-touch(frandy_narrow)
+poco("frandy").click()
 poco("Next").click()
-text("testgroup")
 poco("android.widget.EditText").click()
 text("QA")
 poco("Create").click()
@@ -527,7 +536,7 @@ scan()
 #Read all
 click_menu_button()
 poco("Read all").click()
-sleep(3)
+sleep(5)
 
 #MyQrcode
 click_menu_button()
